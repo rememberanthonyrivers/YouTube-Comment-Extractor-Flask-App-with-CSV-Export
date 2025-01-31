@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Comment Scraper</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0f1a;
+            color: #00f2ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            width: 50%;
+            max-width: 500px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #ff0077;
+            border-radius: 5px;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #00f2ff;
+            box-shadow: 0 0 10px #00f2ff;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #ff0077, #00f2ff);
+            color: white;
+            font-size: 16px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 0, 119, 0.5);
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #00f2ff, #ff0077);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        .error {
+            color: #ff0077;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>YouTube Comment Scraper</h1>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <input type="text" name="video_url" placeholder="Enter YouTube video URL" required>
+        <br>
+        <button type="submit">Download Comments CSV</button>
+    </form>
+</body>
+</html>
